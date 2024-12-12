@@ -23,7 +23,10 @@ app.get("/",(req,res)=>{
 const myPort = process.env.PORT || 4000
 app.listen(myPort,()=>{
     console.log(process.env.PORT,"server is running ......");
-    mongoose.connect(process.env.mongoDbUrl)
+    mongoose.connect(process.env.mongoDbUrl,{
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      })
     .then(()=>{
         console.log("Db Connected");
     }).catch(err=>{
