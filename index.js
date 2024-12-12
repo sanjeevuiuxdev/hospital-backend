@@ -26,6 +26,8 @@ app.listen(myPort,()=>{
     mongoose.connect(process.env.mongoDbUrl,{
         useNewUrlParser: true,
         useUnifiedTopology: true,
+        serverSelectionTimeoutMS: 30000,  // Increase timeout
+  socketTimeoutMS: 45000,
       })
     .then(()=>{
         console.log("Db Connected");
